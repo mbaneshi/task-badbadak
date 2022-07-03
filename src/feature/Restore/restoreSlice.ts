@@ -15,12 +15,14 @@ export const restoreSlice = createSlice({
   initialState,
   reducers: {
     addtolist: (state, action: PayloadAction<number>) => {
-      state.selected.push(state.data[action.payload]);
+      if (!state.selected.includes(state.selected[action.payload])) {
+        state.selected.push(state.data[action.payload]);
+      }
     },
     removefromlist: (state, action: PayloadAction<number>) => {
-      // state.value.remove(action.payload) ;
-      console.log(action.payload);
-      state.selected.filter((item) => item.id == action.payload);
+      state.selected.splice(
+        state.selected.indexOf(state.selected[action.payload])
+      );
     },
   },
 });
