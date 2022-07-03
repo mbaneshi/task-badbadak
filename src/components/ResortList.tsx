@@ -2,11 +2,11 @@ import { Grid } from "@mui/material";
 import { Restore, Restores } from "../types/Restore";
 import ResortItem from "./ResortItem";
 
-const ResortList: React.FC<Restores> = (restores: Restores) => {
+const ResortList: React.FC<Restores> = ({ data }) => {
   return (
     <>
       <Grid container justifyContent="space-evenly">
-        {restores.data.map((restore: Restore, index: number) => {
+        {data.map((restore: Restore, index: number) => {
           return (
             <ResortItem
               id={restore.id}

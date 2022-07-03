@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
 import { Restore } from "../types/Restore";
 
-import { addtolist, removefromlist } from "../feature/Restore/restoreSlice";
+import { addtolist } from "../feature/Restore/restoreSlice";
 
 import { useState } from "react";
 import AddLocationIcon from "@mui/icons-material/AddLocation";
@@ -22,13 +22,6 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
 
-type A = {
-  id: number;
-  title: string;
-  description: string;
-  price: string;
-  imageUrl: string;
-};
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
 }
@@ -45,11 +38,9 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 const ResortItem: React.FC<Restore> = (restore: Restore) => {
-  const restores = useAppSelector((state: RootState) => state.restore);
   const dispatch = useAppDispatch();
 
   const [expanded, setExpanded] = useState(false);
-  // const [location ,setLocation]=useState([])
 
   const handleLocation = (e: any) => {
     console.log(restore.id);
@@ -62,18 +53,6 @@ const ResortItem: React.FC<Restore> = (restore: Restore) => {
   return (
     <Grid item xs={11} sm={6} md={4} xl={3} justifySelf="center">
       <Box m={1}>
-        {/*<h3>{title}</h3>
-      <br />
-      <Typography align="justify" gutterBottom paragraph>
-      {description}
-      </Typography>
-      <br />
-      
-      <p>{price}</p>
-      <br />
-      
-      <img src={imageUrl} alt={title} />
-    <br />*/}
         <Card sx={{ maxWidth: 400, marginX: "auto" }}>
           <CardHeader
             avatar={

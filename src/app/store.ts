@@ -7,11 +7,8 @@ import { restoreSlice } from "../feature/Restore/restoreSlice";
 
 export const store = configureStore({
   reducer: {
-    restore: restoreSlice.reducer,
+    mydata: restoreSlice.reducer,
   },
-  // middleware: middlewareEnhancer();,
-  //   middleware: (getDefaultMiddleware) =>
-  //   getDefaultMiddleware().prepend(listenerMiddleware.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

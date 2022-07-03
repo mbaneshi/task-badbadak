@@ -8,4 +8,5 @@ export interface Restore {
 
 export interface Restores {
   data: Restore[];
+  selected: Restore[];
 }
